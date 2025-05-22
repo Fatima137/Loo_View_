@@ -199,24 +199,12 @@ export default function ProfilePage() {
             {isEditing ? (
               <form onSubmit={handleProfileUpdate} className="space-y-6 max-w-xs mx-auto">
                 <div>
-                  <label className="block text-left font-medium mb-1" htmlFor="displayName">{t('profile.displayNameLabel') || 'Display Name'}</label>
+                  <label className="block text-left font-medium mb-1" htmlFor="displayName">Enter New Name</label>
                   <input
                     type="text"
                     id="displayName"
                     name="displayName"
                     value={formData.displayName}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-left font-medium mb-1" htmlFor="email">{t('profile.emailLabel') || 'Email'}</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border rounded"
                     required
