@@ -103,7 +103,7 @@ export default function AppFooter() {
         {/* Bottom Meta Bar */}
         <div className="border-t border-border pt-8 mt-10 text-center">
           <p className="text-xs text-muted-foreground/80 mb-2">
-            &copy; {new Date().getFullYear()} LooView. {t('landing.footer.rightsReserved')} <span className="ml-2">| Version 0.2</span>
+            &copy; {new Date().getFullYear()} LooView. {t('landing.footer.rightsReserved').replace('.', '')} | Version 0.2
           </p>
           <p className="text-sm text-muted-foreground/90 max-w-2xl mx-auto">
             {t('landing.footer.tagline')}
