@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { Toilet } from '@/lib/types';
@@ -9,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { MessageSquare, Share2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useLocale } from '@/context/locale-context'; // Import useLocale
+import { QUICK_TAGS_CONFIG } from '@/lib/constants';
+import { Badge } from '@/components/ui/badge';
 
 interface RecentReviewsGridSectionProps {
   toilets: Toilet[];
@@ -120,6 +121,20 @@ export default function RecentReviewsGridSection({ toilets, onToiletClick }: Rec
                   <p className="text-sm text-muted-foreground mt-2 italic line-clamp-3">
                     “{toilet.legacyReview}”
                   </p>
+                  {toilet.quickTags && toilet.quickTags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {toilet.quickTags.map(tagId => {
+                        const tag = QUICK_TAGS_CONFIG.find(t => t.id === tagId);
+                        if (!tag) return null;
+                        return (
+                          <Badge key={tag.id} variant="secondary" className="text-xs">
+                            {tag.emoji && <span className="mr-1">{tag.emoji}</span>}
+                            {t(tag.labelKey)}
+                          </Badge>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
                 <Button
                     variant="link"
